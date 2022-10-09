@@ -1,7 +1,21 @@
 :root {
-  --achromatic: 0, 0%; /* neutral color */
-  --bg-color: hsl(var(--achromatic), 100%);
-  --font-color: hsl(var(--achromatic), 20%);
+    --achromatic: 0, 0%;
+    /* neutral color */
+    --bg-color: hsl(var(--achromatic), 95%);
+    --font-color: hsl(var(--achromatic), 20%);
+
+    --color-1: hsl(0, 50%, 50%);
+    --color-2: hsl(72, 50%, 50%);
+    --color-3: hsl(144, 50%, 50%);
+    --color-4: hsl(216, 50%, 50%);
+    --color-5: hsl(288, 50%, 50%);
+
+    --font-size: 2.5rem;
+}
+
+@font-face {
+    font-family: PermanentMarker;
+    src: url(../fonts/PermanentMarker-Regular.ttf);
 }
 
 * {
@@ -12,8 +26,8 @@
 
 html {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-     margin:0;
-	 padding:0;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -21,10 +35,97 @@ body {
     user-select: none;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
-    margin:0;
-	padding:0;
-	color: var(--font-color);
-	font-size: 100%;
+    margin: 0;
+    padding: 0;
+    color: var(--font-color);
+    font-size: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-size: var(--font-size);
+    font-family: PermanentMarker;
+}
+
+main {
+    width: 100vw;
+    margin: 1.5vmin;
+    max-width: 960px;
+}
+
+ol {
+    list-style: none;
+    counter-reset: words;
+    padding: 0;
+    margin: 0;
+}
+
+ol li {
+    counter-increment: words;
+    background-color: hsl(var(--achromatic), 100%);
+    margin: 2.5rem 2.5rem 2.5rem 8rem;
+    position: relative;
+    border: 3px solid black;
+    padding: 1vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1vmin;
+}
+
+ol li::before {
+    content: counter(words);
+    border: 3px solid black;
+    border-radius: 50%;
+    background-color: hsl(var(--achromatic), 100%);
+    position: absolute;
+    left: -7rem;
+    width: 4.9rem;
+    height: 4.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-size);
+}
+
+ol li:nth-of-type(1) {
+    border-color: var(--color-1);
+}
+
+ol li:nth-of-type(1)::before {
+    border-color: var(--color-1);
+}
+
+ol li:nth-of-type(2) {
+    border-color: var(--color-2);
+}
+
+ol li:nth-of-type(2)::before {
+    border-color: var(--color-2);
+}
+
+ol li:nth-of-type(3) {
+    border-color: var(--color-3);
+}
+
+ol li:nth-of-type(3)::before {
+    border-color: var(--color-3);
+}
+
+ol li:nth-of-type(4) {
+    border-color: var(--color-4);
+}
+
+ol li:nth-of-type(4)::before {
+    border-color: var(--color-4);
+}
+
+ol li:nth-of-type(5) {
+    border-color: var(--color-5);
+}
+
+ol li:nth-of-type(5)::before {
+    border-color: var(--color-5);
 }
 
 /*
@@ -40,8 +141,8 @@ MEDIA QUERIES
 */
 
 @media (prefers-color-scheme: dark) {
-	:root {
-		--bg-color: hsl(var(--achromatic), 10%);
-		--font-color: hsl(var(--achromatic), 80%);
-	}
+    :root {
+        --bg-color: hsl(var(--achromatic), 10%);
+        --font-color: hsl(var(--achromatic), 80%);
+    }
 }
