@@ -10,7 +10,7 @@
     --color-4: hsl(216, 50%, 50%);
     --color-5: hsl(288, 50%, 50%);
 
-    --font-size: 2.5rem;
+    --font-size: 7vmin;
 }
 
 @font-face {
@@ -63,7 +63,7 @@ ol {
 ol li {
     counter-increment: words;
     background-color: hsl(var(--achromatic), 100%);
-    margin: 2.5rem 2.5rem 2.5rem 8rem;
+    margin: 5vh 5vw 5vh calc(5vw + 16.5vmin);
     position: relative;
     border: 3px solid black;
     padding: 1vmin;
@@ -79,9 +79,9 @@ ol li::before {
     border-radius: 50%;
     background-color: hsl(var(--achromatic), 100%);
     position: absolute;
-    left: -7rem;
-    width: 4.9rem;
-    height: 4.9rem;
+    left: -17.5vmin;
+    width: 12vmin;
+    height: 12vmin;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -142,7 +142,57 @@ MEDIA QUERIES
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg-color: hsl(var(--achromatic), 10%);
-        --font-color: hsl(var(--achromatic), 80%);
+        --bg-color: hsl(var(--achromatic), 20%);
+        --font-color: hsl(var(--achromatic), 90%);
+    }
+
+    ol li:nth-of-type(1) {
+        background-color: var(--color-1);
+        border-color: hsl(var(--achromatic), 90%);
+    }
+    
+    ol li:nth-of-type(1)::before {
+        background-color: var(--color-1);
+        border-color: hsl(var(--achromatic), 90%);
+    }
+    
+    ol li:nth-of-type(2) {
+        background-color: var(--color-2);
+        border-color: hsl(var(--achromatic), 90%);
+    }
+    
+    ol li:nth-of-type(2)::before {
+        background-color: var(--color-2);
+        border-color: hsl(var(--achromatic), 90%);
+    }
+    
+    ol li:nth-of-type(3) {
+        background-color: var(--color-3);
+        border-color: hsl(var(--achromatic), 90%);
+    }
+    
+    ol li:nth-of-type(3)::before {
+        background-color: var(--color-3);
+        border-color: hsl(var(--achromatic), 90%);
+    }
+    
+    ol li:nth-of-type(4) {
+        background-color: var(--color-4);
+        border-color: hsl(var(--achromatic), 90%);
+    }
+    
+    ol li:nth-of-type(4)::before {
+        background-color: var(--color-4);
+        border-color: hsl(var(--achromatic), 90%);
+    }
+    
+    ol li:nth-of-type(5) {
+        background-color: var(--color-5);
+        border-color: hsl(var(--achromatic), 90%);
+    }
+    
+    ol li:nth-of-type(5)::before {
+        background-color: var(--color-5);
+        border-color: hsl(var(--achromatic), 90%);
     }
 }
