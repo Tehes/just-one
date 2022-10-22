@@ -1,8 +1,6 @@
 :root {
-    --achromatic: 0, 0%;
-    /* neutral color */
-    --bg-color: hsl(var(--achromatic), 95%);
-    --font-color: hsl(var(--achromatic), 20%);
+    --bg-color: hsl(0, 0%, 95%);
+    --font-color: hsl(0, 0%, 20%);
 
     --color-1: hsl(0, 50%, 50%);
     --color-2: hsl(60, 50%, 50%);
@@ -43,9 +41,11 @@ body {
     font-size: 100%;
     display: flex;
     justify-content: center;
-    height: 100vh;
     font-size: var(--font-size);
     font-family: PermanentMarker;
+    min-height: 100vh;
+    /* mobile viewport bug fix */
+    min-height: -webkit-fill-available;
 }
 
 main {
@@ -70,7 +70,7 @@ ol {
 
 ol li {
     counter-increment: words;
-    background-color: hsl(var(--achromatic), 100%);
+    background-color: hsl(0, 0%, 100%);
     position: relative;
     border: 3px solid black;
     margin: 1vmin 0 1vmin 15.5vmin;
@@ -86,7 +86,7 @@ ol li::before {
     content: counter(words);
     border: 3px solid black;
     border-radius: 50%;
-    background-color: hsl(var(--achromatic), 100%);
+    background-color: hsl(0, 0%, 100%);
     position: absolute;
     left: -15.5vmin;
     width: 12vmin;
@@ -140,8 +140,8 @@ ol li:nth-of-type(5)::before {
 button {
     font-size: var(--font-size);
     border: 3px solid black;
-    border-radius: 1vmin;
-    background-color: hsl(var(--achromatic), 100%);
+    border-radius: 3vmin;
+    background-color: hsl(0, 0%, 100%);
     font-family: PermanentMarker;
     color: var(--font-color);
     margin-bottom: 2vh;
@@ -171,64 +171,63 @@ MEDIA QUERIES
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg-color: hsl(var(--achromatic), 20%);
-        --font-color: hsl(var(--achromatic), 90%);
+        --bg-color: hsl(0, 0%, 20%);
+        --font-color: hsl(0, 0%, 90%);
     }
 
     ol li:nth-of-type(1) {
         background-color: var(--color-1);
-        border-color: hsl(var(--achromatic), 90%);
+        border-color: var(--font-color);
     }
     
     ol li:nth-of-type(1)::before {
         background-color: var(--color-1);
-        border-color: hsl(var(--achromatic), 90%);
+        border-color: var(--font-color);
     }
     
     ol li:nth-of-type(2) {
         background-color: var(--color-2);
-        border-color: hsl(var(--achromatic), 90%);
+        border-color: var(--font-color);
     }
     
     ol li:nth-of-type(2)::before {
         background-color: var(--color-2);
-        border-color: hsl(var(--achromatic), 90%);
+        border-color: var(--font-color);
     }
     
     ol li:nth-of-type(3) {
         background-color: var(--color-3);
-        border-color: hsl(var(--achromatic), 90%);
+        border-color: var(--font-color);
     }
     
     ol li:nth-of-type(3)::before {
         background-color: var(--color-3);
-        border-color: hsl(var(--achromatic), 90%);
+        border-color: var(--font-color);
     }
     
     ol li:nth-of-type(4) {
         background-color: var(--color-4);
-        border-color: hsl(var(--achromatic), 90%);
+        border-color: var(--font-color);
     }
     
     ol li:nth-of-type(4)::before {
         background-color: var(--color-4);
-        border-color: hsl(var(--achromatic), 90%);
+        border-color: var(--font-color);
     }
     
     ol li:nth-of-type(5) {
         background-color: var(--color-5);
-        border-color: hsl(var(--achromatic), 90%);
+        border-color: var(--font-color);
     }
     
     ol li:nth-of-type(5)::before {
         background-color: var(--color-5);
-        border-color: hsl(var(--achromatic), 90%);
+        border-color: var(--font-color);
     }
 
     button {
         border: 3px solid white;
-        border-radius: 1vmin;
-        background-color: hsl(var(--achromatic), 40%);
-        color: hsl(var(--achromatic), 100%);
+        background-color: hsl(0, 0%, 40%);
+        color: var(--font-color);
     }
 }
