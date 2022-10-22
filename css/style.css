@@ -5,10 +5,10 @@
     --font-color: hsl(var(--achromatic), 20%);
 
     --color-1: hsl(0, 50%, 50%);
-    --color-2: hsl(72, 50%, 50%);
-    --color-3: hsl(144, 50%, 50%);
+    --color-2: hsl(60, 50%, 50%);
+    --color-3: hsl(113, 50%, 50%);
     --color-4: hsl(216, 50%, 50%);
-    --color-5: hsl(288, 50%, 50%);
+    --color-5: hsl(298, 50%, 50%);
 
     --font-size: 7vmin;
 }
@@ -40,7 +40,6 @@ body {
     color: var(--font-color);
     font-size: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
     height: 100vh;
     font-size: var(--font-size);
@@ -49,10 +48,11 @@ body {
 
 main {
     width: 100vw;
-    margin: 1.5vmin;
+    padding: 0 5vw;
     max-width: 960px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 ol {
@@ -60,20 +60,24 @@ ol {
     counter-reset: words;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex: 1 0 auto;
 }
 
 ol li {
     counter-increment: words;
     background-color: hsl(var(--achromatic), 100%);
-    margin: 5vh 5vw 5vh calc(5vw + 16.5vmin);
     position: relative;
     border: 3px solid black;
+    margin: 1vmin 0 1vmin 17.5vmin;
     padding: 1vmin;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 1vmin;
-    height: 13vmin;
+    height: 12vmin;
 }
 
 ol li::before {
@@ -133,16 +137,22 @@ ol li:nth-of-type(5)::before {
 
 button {
     font-size: var(--font-size);
-    margin: 2vh 5vw;
     border: 3px solid black;
     border-radius: 1vmin;
     background-color: hsl(var(--achromatic), 100%);
     font-family: PermanentMarker;
     color: var(--font-color);
+    margin-bottom: 2vh;
 }
 
 button:active {
     transform: translateY(0.3vmin);
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 10vmin;
 }
 
 /*
