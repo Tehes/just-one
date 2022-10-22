@@ -10,6 +10,11 @@ from './words.js';
 /* --------------------------------------------------------------------------------------------------
 Variables
 ---------------------------------------------------------------------------------------------------*/
+var button = document.querySelector("button");
+
+/* --------------------------------------------------------------------------------------------------
+functions
+---------------------------------------------------------------------------------------------------*/
 Array.prototype.shuffle = function() {
     var i = this.length;
     while (i) {
@@ -23,7 +28,6 @@ Array.prototype.shuffle = function() {
 
 function loadWords() {
     const listElements = document.querySelectorAll("li");
-    justOneWords.shuffle();
 
     for (const li of listElements) {
         li.textContent = justOneWords[0];
@@ -31,12 +35,10 @@ function loadWords() {
     }
 }
 
-/* --------------------------------------------------------------------------------------------------
-functions
----------------------------------------------------------------------------------------------------*/
-
 function init() {
     document.addEventListener("touchstart", function() {}, false);
+    button.addEventListener("click", loadWords, false);
+    justOneWords.shuffle();
     loadWords();
 }
 
