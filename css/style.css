@@ -147,6 +147,10 @@ div {
     align-items: center;
 }
 
+span {
+    height: 100%;
+}
+
 .animate {
     animation: slideUp 1s;
 }
@@ -170,12 +174,14 @@ button {
 }
 
 button:hover {
-    background-color: hsl(0, 0%, 90%);
+    box-shadow: 0vmin 0.5vmin 0.5vmin hsl(0, 0%, 65%);
+    transform: translateY(-0.2vmin);
 }
 
 button:active {
     transform: translateY(0.3vmin);
     background-color: hsl(0, 0%, 100%);
+    box-shadow: none;
 }
 
 h1 {
@@ -183,12 +189,6 @@ h1 {
     margin: 0;
     font-size: 10vmin;
 }
-
-/*
--------------------------------------------------------------------
-YOUR SECTIONS
--------------------------------------------------------------------
-*/
 
 /*
 -------------------------------------------------------------------
@@ -256,5 +256,14 @@ MEDIA QUERIES
         border: 3px solid white;
         background-color: hsl(0, 0%, 40%);
         color: var(--font-color);
+    }
+
+    button:hover {
+        box-shadow: 0vmin 0.5vmin 0.5vmin hsl(0, 0%, 0%);
+    }
+
+    button:active {
+        background-color: hsl(0, 0%, 40%);
+        box-shadow: none;
     }
 }
