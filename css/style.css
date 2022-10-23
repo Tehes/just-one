@@ -8,7 +8,7 @@
     --color-4: hsl(216, 50%, 50%);
     --color-5: hsl(298, 50%, 50%);
 
-    --font-size: 7vmin;
+    --font-size: 6vmin;
 }
 
 @font-face {
@@ -73,12 +73,12 @@ ol li {
     background-color: hsl(0, 0%, 100%);
     position: relative;
     border: 3px solid black;
-    margin: 1vmin 0 1vmin 15.5vmin;
+    margin: 2vmin 0 2vmin 14.5vmin;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 1vmin;
-    height: 12vmin;
+    height: 10vmin;
 }
 
 ol li::before {
@@ -87,9 +87,9 @@ ol li::before {
     border-radius: 50%;
     background-color: hsl(0, 0%, 100%);
     position: absolute;
-    left: -15.5vmin;
-    width: 12vmin;
-    height: 12vmin;
+    left: -14.5vmin;
+    width: 10vmin;
+    height: 10vmin;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -166,11 +166,16 @@ button {
     background-color: hsl(0, 0%, 100%);
     font-family: PermanentMarker;
     color: var(--font-color);
-    margin-bottom: 2vh;
+    margin: 2vh 0 4vh 0;
+}
+
+button:hover {
+    background-color: hsl(0, 0%, 90%);
 }
 
 button:active {
     transform: translateY(0.3vmin);
+    background-color: hsl(0, 0%, 100%);
 }
 
 h1 {
