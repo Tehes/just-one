@@ -27,12 +27,25 @@ Array.prototype.shuffle = function() {
 };
 
 function loadWords() {
-    const listElements = document.querySelectorAll("li");
+    button.removeEventListener("click", loadWords, false);
+    const listElements = document.querySelectorAll("div span:nth-of-type(2)");
 
     for (const li of listElements) {
         li.textContent = justOneWords[0];
+        li.classList.add("animate");
+        li.previousElementSibling.classList.add("animate");
+        document.addEventListener("animationend", slideUp.bind(null, li.previousElementSibling, justOneWords[0]), false);
         justOneWords.push(justOneWords.shift());
     }
+
+    
+}
+
+function slideUp(a, b) {
+    a.textContent = b;
+    a.classList.remove("animate");
+    a.nextElementSibling.classList.remove("animate");
+    button.addEventListener("click", loadWords, false);
 }
 
 function init() {
