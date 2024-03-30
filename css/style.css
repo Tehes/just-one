@@ -8,7 +8,7 @@
     --color-4: hsl(216, 50%, 50%);
     --color-5: hsl(298, 50%, 50%);
 
-    --font-size: 6vmin;
+    --font-size: 4vh;
 }
 
 @font-face {
@@ -73,12 +73,12 @@ ol li {
     background-color: hsl(0, 0%, 100%);
     position: relative;
     border: 3px solid black;
-    margin: 2vmin 0 2vmin 14.5vmin;
+    margin: 2vmin 0 2vmin 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 1vmin;
-    height: 10vmin;
+    height: 7vh;
 }
 
 ol li::before {
@@ -87,9 +87,9 @@ ol li::before {
     border-radius: 50%;
     background-color: hsl(0, 0%, 100%);
     position: absolute;
-    left: -14.5vmin;
-    width: 10vmin;
-    height: 10vmin;
+    left: -10vh;
+    width: 7vh;
+    height: 7vh;
     display: flex;
     justify-content: center;
     align-items: center;
