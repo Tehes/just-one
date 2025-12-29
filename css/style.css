@@ -8,7 +8,7 @@
     --color-4: hsl(216, 50%, 45%);
     --color-5: hsl(298, 50%, 45%);
 
-    --font-size: 4.3vh;
+    --font-size: 4vh;
 }
 
 * {
@@ -152,7 +152,7 @@ span {
 }
 
 .animate {
-    animation: slideUp 1s;
+    animation: slideUp 0.1s;
 }
 
 @keyframes slideUp {
