@@ -9,9 +9,7 @@ Variables
 ---------------------------------------------------------------------------------------------------*/
 const button = document.querySelector("button");
 const rollSteps = 12;
-let roundStartIndex = 0;
-let rollQueues = [];
-let rollIndex = 0;
+let fillerPool = [];
 
 /* --------------------------------------------------------------------------------------------------
 functions
@@ -29,19 +27,26 @@ Array.prototype.shuffle = function () {
 
 function loadWords() {
 	const listElements = document.querySelectorAll("div span:nth-of-type(2)");
+	const finalWords = justOneWords.slice(0, listElements.length);
+	fillerPool = justOneWords.slice(listElements.length);
 
-	rollQueues = [];
-
-	for (let i = 0; i < listElements.length; i += 1) {
-		const finalWord = justOneWords[(roundStartIndex + i) % justOneWords.length];
-		rollQueues.push(buildRollQueue(finalWord));
-	}
+	fillerPool.shuffle();
 
 	for (let i = 0; i < listElements.length; i += 1) {
-		startRoll(listElements[i], i);
+		startRoll(listElements[i], finalWords[i] || "");
 	}
 
-	roundStartIndex = (roundStartIndex + listElements.length) % justOneWords.length;
+	const movedWords = justOneWords.splice(0, listElements.length);
+	justOneWords.push(...movedWords);
+}
+
+function startRoll(target, finalWord) {
+	target.dataset.rollsLeft = String(rollSteps);
+	target.dataset.finalWord = finalWord;
+	target.removeEventListener("animationend", slideUp, false);
+	setNextWord(target);
+	target.addEventListener("animationend", slideUp, false);
+	restartAnimation(target);
 }
 
 function slideUp(ev) {
@@ -67,25 +72,15 @@ function slideUp(ev) {
 }
 
 function setNextWord(target) {
-	const queueId = Number(target.dataset.queueId) || 0;
-	const idx = Number(target.dataset.queueIndex) || 0;
-	const queue = rollQueues[queueId];
+	const rollsLeft = Number(target.dataset.rollsLeft);
+	const finalWord = target.dataset.finalWord || "";
 
-	target.textContent = queue ? queue[idx % queue.length] : "";
-	target.dataset.queueIndex = String(idx + 1);
-}
-
-function buildRollQueue(finalWord) {
-	const queue = [];
-
-	for (let i = 0; i < rollSteps - 1; i += 1) {
-		queue.push(justOneWords[rollIndex % justOneWords.length]);
-		rollIndex += 1;
+	if (rollsLeft > 1) {
+		target.textContent = fillerPool.shift() || "";
+		return;
 	}
 
-	queue.push(finalWord);
-
-	return queue;
+	target.textContent = finalWord;
 }
 
 function restartAnimation(target) {
@@ -97,16 +92,6 @@ function restartAnimation(target) {
 	void target.offsetHeight;
 	target.classList.add("animate");
 	previous.classList.add("animate");
-}
-
-function startRoll(target, queueId) {
-	target.dataset.rollsLeft = String(rollSteps);
-	target.dataset.queueIndex = "0";
-	target.dataset.queueId = String(queueId);
-	target.removeEventListener("animationend", slideUp, false);
-	setNextWord(target);
-	target.addEventListener("animationend", slideUp, false);
-	restartAnimation(target);
 }
 
 function init() {
