@@ -152,7 +152,7 @@ span {
 }
 
 .animate {
-    animation: slideUp 0.1s;
+    animation: slideUp 0.2s;
 }
 
 @keyframes slideUp {
