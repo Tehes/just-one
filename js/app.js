@@ -9,6 +9,7 @@ Variables
 ---------------------------------------------------------------------------------------------------*/
 const newCardButton = document.querySelector("#newCard");
 const helpButton = document.querySelector("#help");
+const helpOverlay = document.querySelector("#helpOverlay");
 const rollSteps = 12;
 let fillerPool = [];
 
@@ -95,7 +96,7 @@ function restartAnimation(target) {
 }
 
 function showHelp() {
-	alert("Die Hilfe-Funktion ist noch nicht implementiert.");
+	helpOverlay.classList.toggle("hidden");
 }
 
 function init() {
