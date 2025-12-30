@@ -10,6 +10,7 @@
     --color-5: hsl(298, 50%, 45%);
 
     --font-size: 4vh;
+    --corner-radius: 5px;
 }
 
 * {
@@ -91,7 +92,7 @@ ol li {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 1vmin;
+    border-radius: var(--corner-radius);
     height: 7vh;
 }
 
@@ -243,7 +244,7 @@ Overlay
     width: 94vw;
     max-width: 800px;
     height: 70vh;
-    border-radius: 10px;
+    border-radius: var(--corner-radius);
     box-shadow: 0vmin 0.5vmin 1vmin hsl(0, 0%, 50%);
     background-color: var(--bg-overlay);
     justify-content: center;
