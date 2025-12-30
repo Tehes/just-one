@@ -14,30 +14,29 @@ let fillerPool = [];
 /* --------------------------------------------------------------------------------------------------
 functions
 ---------------------------------------------------------------------------------------------------*/
-Array.prototype.shuffle = function () {
-	let i = this.length;
+function shuffleArray(items) {
+	let i = items.length;
 	while (i) {
 		const j = Math.floor(Math.random() * i);
-		const t = this[--i];
-		this[i] = this[j];
-		this[j] = t;
+		const t = items[--i];
+		items[i] = items[j];
+		items[j] = t;
 	}
-	return this;
-};
+	return items;
+}
 
 function loadWords() {
 	const listElements = document.querySelectorAll("div span:nth-of-type(2)");
 	const finalWords = justOneWords.slice(0, listElements.length);
 	fillerPool = justOneWords.slice(listElements.length);
 
-	fillerPool.shuffle();
+	shuffleArray(fillerPool);
 
 	for (let i = 0; i < listElements.length; i += 1) {
 		startRoll(listElements[i], finalWords[i] || "");
 	}
 
-	const movedWords = justOneWords.splice(0, listElements.length);
-	justOneWords.push(...movedWords);
+	justOneWords.push(...justOneWords.splice(0, listElements.length));
 }
 
 function startRoll(target, finalWord) {
@@ -96,7 +95,7 @@ function restartAnimation(target) {
 
 function init() {
 	document.addEventListener("touchstart", function () {}, false);
-	justOneWords.shuffle();
+	shuffleArray(justOneWords);
 	loadWords();
 	button.addEventListener("click", loadWords, false);
 }
