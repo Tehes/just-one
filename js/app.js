@@ -7,7 +7,8 @@ import { justOneWords } from "./words.js";
 /* --------------------------------------------------------------------------------------------------
 Variables
 ---------------------------------------------------------------------------------------------------*/
-const button = document.querySelector("button");
+const newCardButton = document.querySelector("#newCard");
+const helpButton = document.querySelector("#help");
 const rollSteps = 12;
 let fillerPool = [];
 
@@ -93,11 +94,16 @@ function restartAnimation(target) {
 	previous.classList.add("animate");
 }
 
+function showHelp() {
+	alert("Die Hilfe-Funktion ist noch nicht implementiert.");
+}
+
 function init() {
 	document.addEventListener("touchstart", function () {}, false);
 	shuffleArray(justOneWords);
 	loadWords();
-	button.addEventListener("click", loadWords, false);
+	newCardButton.addEventListener("click", loadWords, false);
+	helpButton.addEventListener("click", showHelp, false);
 }
 
 /* --------------------------------------------------------------------------------------------------
